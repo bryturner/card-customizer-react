@@ -12,19 +12,35 @@ function WoodTypeRadioGroup({ setWoodType }) {
     <div>
       <WoodTypeLabel>
         <WoodTypeRadioImageStyled src={spruceImage} />
-        <WoodTypeRadio value="spruce" setWoodType={setWoodType} />
+        <WoodTypeRadio
+          defaultChecked={true}
+          value="spruce"
+          setWoodType={setWoodType}
+        />
       </WoodTypeLabel>
       <WoodTypeLabel>
         <WoodTypeRadioImageStyled src={beechImage} />
-        <WoodTypeRadio value="beech" setWoodType={setWoodType} />
+        <WoodTypeRadio
+          defaultChecked={false}
+          value="beech"
+          setWoodType={setWoodType}
+        />
       </WoodTypeLabel>
       <WoodTypeLabel>
         <WoodTypeRadioImageStyled src={blackImage} />
-        <WoodTypeRadio value="black" setWoodType={setWoodType} />
+        <WoodTypeRadio
+          defaultChecked={false}
+          value="black"
+          setWoodType={setWoodType}
+        />
       </WoodTypeLabel>
       <WoodTypeLabel>
         <WoodTypeRadioImageStyled src={mapleImage} />
-        <WoodTypeRadio value="maple" setWoodType={setWoodType} />
+        <WoodTypeRadio
+          defaultChecked={false}
+          value="maple"
+          setWoodType={setWoodType}
+        />
       </WoodTypeLabel>
     </div>
   );
