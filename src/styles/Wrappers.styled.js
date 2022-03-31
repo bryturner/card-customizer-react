@@ -6,7 +6,7 @@ export const CardImageWrapper = styled.div`
   position: relative;
 `;
 
-export const FullNameOutputWrapper = styled.div`
+export const OutputWrapper = styled.div`
   border: 2px solid red;
   width: 70rem;
   height: 40rem;

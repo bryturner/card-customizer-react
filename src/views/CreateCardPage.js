@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from "react";
 import CreateCardForm from "../components/forms/CreateCardForm";
-import WoodTypeRadioGroup from "../components/inputs/WoodTypeRadioGroup";
-import TextInput from "../components/inputs/TextInput";
 import { Grid2Cols } from "../styles/Grids.styled";
 import { CardOutline } from "../styles/Card.styled";
 import { CardContainer } from "../styles/Containers.styled";
-import {
-  CardImageWrapper,
-  FullNameOutputWrapper,
-} from "../styles/Wrappers.styled";
+import { CardImageWrapper, OutputWrapper } from "../styles/Wrappers.styled";
 import CardImage from "../components/card/CardImage";
 import FullNameOutput from "../components/outputs/FullNameOutput";
-import FontSizeSelect from "../components/inputs/FontSizeSelect";
-import { FontColorSelect } from "../components/inputs";
+import {
+  FontColorSelect,
+  TextInput,
+  FontSizeSelect,
+  WoodTypeRadioGroup,
+} from "../components/inputs";
+import AdditionalInfoOutput from "../components/outputs/AdditionalInfoOutput";
 
-// default radio checked
 function CreateCardPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [addressLine1, setAddressLine1] = useState("");
-  const [addressLine2, setAddressLine2] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
+  const [textLine1, setTextLine1] = useState("");
+  const [textLine2, setTextLine2] = useState("");
+  const [textLine3, setTextLine3] = useState("");
+  const [additionalInfo, setAdditionalInfo] = useState("");
   const [fontSize, setFontSize] = useState("24px");
   const [fontColor, setFontColor] = useState("#fff");
 
@@ -29,6 +30,11 @@ function CreateCardPage() {
     const concatName = `${firstName} ${lastName}`;
     setFullName(concatName);
   }
+
+  //   function updateAddInfoOutput() {
+  // 	const concatName = `${firstName} ${lastName}`;
+  // 	setFullName(concatName);
+  //  }
 
   useEffect(() => {
     updateFullNameOutput();
@@ -41,7 +47,7 @@ function CreateCardPage() {
             <CardImageWrapper>
               <CardImage woodType={woodType} />
             </CardImageWrapper>
-            <FullNameOutputWrapper>
+            <OutputWrapper>
               <FullNameOutput
                 form="create-card-form"
                 htmlFor="first-name, last-name"
@@ -50,7 +56,11 @@ function CreateCardPage() {
                 fontSize={fontSize}
                 fontColor={fontColor}
               />
-            </FullNameOutputWrapper>
+              <AdditionalInfoOutput
+                form="create-card-form"
+                htmlFor="text-line-1, text-line-2, text-line-3"
+              />
+            </OutputWrapper>
           </CardOutline>
         </CardContainer>
 
@@ -59,25 +69,32 @@ function CreateCardPage() {
             setState={setFirstName}
             value={firstName}
             id="first-name"
-          />
-          <TextInput setState={setLastName} value={lastName} id="last-name" />
-          <TextInput
-            setState={setAddressLine1}
-            value={addressLine1}
-            id="address-1"
+            placeholder="First"
           />
           <TextInput
-            setState={setAddressLine2}
-            value={addressLine2}
-            id="address-2"
+            setState={setLastName}
+            value={lastName}
+            id="last-name"
+            placeholder="Last"
+          />
+          <TextInput
+            setState={setTextLine1}
+            value={textLine1}
+            id="text-line-1"
+          />
+          <TextInput
+            setState={setTextLine2}
+            value={textLine2}
+            id="text-line-2"
+          />
+          <TextInput
+            setState={setTextLine3}
+            value={textLine3}
+            id="text-line-3"
           />
           <WoodTypeRadioGroup setWoodType={setWoodType} />
           <FontSizeSelect setFontSize={setFontSize} fontSize={fontSize} />
-          <FontColorSelect
-            fontColor={fontColor}
-            setFontColor={setFontColor}
-            woodType={woodType}
-          />
+          <FontColorSelect fontColor={fontColor} setFontColor={setFontColor} />
         </CreateCardForm>
       </Grid2Cols>
     </>

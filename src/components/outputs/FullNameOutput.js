@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FullNameOutputStyled } from "../../styles/Card.styled";
 import Draggable from "react-draggable";
+
+import { FullNameOutputStyled } from "../../styles/Outputs.styled";
 
 function FullNameOutput({
   form,

@@ -21,19 +21,19 @@ export const CardImageStyled = styled.img`
   left: 0;
 `;
 
-export const FullNameOutputStyled = styled.output`
-  border: 2px solid black;
-  position: absolute;
-  bottom: 1rem;
-  left: 25rem;
-  height: auto;
-  width: auto;
-  margin: 1rem;
+// export const FullNameOutputStyled = styled.output`
+//   border: 2px solid black;
+//   position: absolute;
+//   bottom: 1rem;
+//   left: 25rem;
+//   height: auto;
+//   width: auto;
+//   margin: 1rem;
 
-  /* text-align: center; */
-  font-size: ${(props) => props.fontSize};
-  font-weight: 500;
-  z-index: 999;
-  cursor: grab;
-  color: ${(props) => props.fontColor};
-`;
+//   /* text-align: center; */
+//   font-size: ${(props) => props.fontSize};
+//   font-weight: 500;
+//   z-index: 999;
+//   cursor: grab;
+//   color: ${(props) => props.fontColor};
+// `;
