@@ -7,7 +7,7 @@ import blackImage from "../../assets/black.jpg";
 import mapleImage from "../../assets/maple.jpg";
 import { WoodTypeRadioImageStyled } from "../../styles";
 
-function WoodTypeRadioGroup({ setWoodType }) {
+function WoodTypeRadioGroup({ woodType, setWoodType }) {
   return (
     <div>
       <WoodTypeLabel>

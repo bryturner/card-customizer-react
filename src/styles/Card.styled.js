@@ -29,11 +29,12 @@ export const FullNameOutputStyled = styled.output`
   height: auto;
   width: auto;
   margin: 1rem;
-  margin-right: ${(props) => props.marginRight};
+
   /* text-align: center; */
   font-size: 2.4rem;
   font-weight: 500;
   z-index: 999;
   cursor: grab;
-  color: #111;
+  /* color: #111; */
+  color: ${(props) => (props.woodType === "black" ? "#fff" : "#111")};
 `;

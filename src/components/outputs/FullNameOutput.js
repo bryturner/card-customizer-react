@@ -2,15 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { FullNameOutputStyled } from "../../styles/Card.styled";
 import Draggable from "react-draggable";
 
-function FullNameOutput({ form, htmlFor, fullName, outputWidth }) {
+function FullNameOutput({ form, htmlFor, fullName, woodType }) {
   const nodeRef = useRef(null);
 
   const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0 });
+
   const [controlledPosition, setControlledPosition] = useState({
-    x: 25,
-    y: 10,
+    x: 0,
+    y: 0,
   });
-  //   const [marginRight, setMarginRight] = useState(0);
 
   function handleDragCont(e, ui) {
     const { x, y } = controlledPosition;
@@ -35,7 +35,7 @@ function FullNameOutput({ form, htmlFor, fullName, outputWidth }) {
         form={form}
         htmlFor={htmlFor}
         ref={nodeRef}
-        marginRight={outputWidth}
+        woodType={woodType}
       >
         {fullName}
         {/* {deltaPosition.x.toFixed(0)}, {deltaPosition.y.toFixed(0)} */}

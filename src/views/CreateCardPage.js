@@ -12,6 +12,8 @@ import {
 import CardImage from "../components/card/CardImage";
 import FullNameOutput from "../components/outputs/FullNameOutput";
 
+// Font size input / text color options input
+// default radio checked
 function CreateCardPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -19,20 +21,10 @@ function CreateCardPage() {
   const [addressLine2, setAddressLine2] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
-  const [outputWidth, setOutputWidth] = useState(0);
 
   function updateFullNameOutput() {
     const concatName = `${firstName} ${lastName}`;
     setFullName(concatName);
-  }
-
-  function updateMarginRight() {
-    //   control margin right on output onChange function
-    // Increases and decreases based on the width px of the character typed in the input
-    const clientWidth = document.getElementById("full-name-output").clientWidth;
-
-    console.log(clientWidth);
-    setOutputWidth(clientWidth);
   }
 
   useEffect(() => {
@@ -46,15 +38,15 @@ function CreateCardPage() {
             <CardImageWrapper>
               <CardImage woodType={woodType} />
             </CardImageWrapper>
+            <FullNameOutputWrapper>
+              <FullNameOutput
+                form="create-card-form"
+                htmlFor="first-name, last-name"
+                fullName={fullName}
+                woodType={woodType}
+              />
+            </FullNameOutputWrapper>
           </CardOutline>
-          <FullNameOutputWrapper>
-            <FullNameOutput
-              form="create-card-form"
-              htmlFor="first-name, last-name"
-              fullName={fullName}
-              outputWidth={outputWidth}
-            />
-          </FullNameOutputWrapper>
         </CardContainer>
 
         <CreateCardForm id="create-card-form">
@@ -62,14 +54,8 @@ function CreateCardPage() {
             setState={setFirstName}
             value={firstName}
             id="first-name"
-            updateMarginRight={updateMarginRight}
           />
-          <TextInput
-            setState={setLastName}
-            value={lastName}
-            id="last-name"
-            updateMarginRight={updateMarginRight}
-          />
+          <TextInput setState={setLastName} value={lastName} id="last-name" />
           <TextInput
             setState={setAddressLine1}
             value={addressLine1}

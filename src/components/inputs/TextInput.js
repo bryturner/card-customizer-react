@@ -1,17 +1,6 @@
 import React from "react";
 
-function TextInput({ value, setState, id, updateMarginRight }) {
-  //   function updateMarginRight() {
-  //     //   control margin right on output onChange function
-  //     // Increases and decreases based on the width px of the character typed in the input
-  //     const rect = document
-  //       .getElementById("full-name-output")
-  //       .getBoundingClientRect();
-
-  //     const { height, width } = rect;
-  //     console.log(height, width);
-  //   }
-
+function TextInput({ value, setState, id }) {
   return (
     <input
       id={id}
@@ -19,7 +8,6 @@ function TextInput({ value, setState, id, updateMarginRight }) {
       value={value}
       onChange={(e) => {
         setState(e.target.value);
-        updateMarginRight();
       }}
     />
   );
