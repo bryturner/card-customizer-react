@@ -31,10 +31,9 @@ export const FullNameOutputStyled = styled.output`
   margin: 1rem;
 
   /* text-align: center; */
-  font-size: 2.4rem;
+  font-size: ${(props) => props.fontSize};
   font-weight: 500;
   z-index: 999;
   cursor: grab;
-  /* color: #111; */
-  color: ${(props) => (props.woodType === "black" ? "#fff" : "#111")};
+  color: ${(props) => props.fontColor};
 `;

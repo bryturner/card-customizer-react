@@ -2,7 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { FullNameOutputStyled } from "../../styles/Card.styled";
 import Draggable from "react-draggable";
 
-function FullNameOutput({ form, htmlFor, fullName, woodType }) {
+function FullNameOutput({
+  form,
+  htmlFor,
+  fullName,
+  woodType,
+  fontSize,
+  fontColor,
+}) {
   const nodeRef = useRef(null);
 
   const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0 });
@@ -36,6 +43,8 @@ function FullNameOutput({ form, htmlFor, fullName, woodType }) {
         htmlFor={htmlFor}
         ref={nodeRef}
         woodType={woodType}
+        fontSize={fontSize}
+        fontColor={fontColor}
       >
         {fullName}
         {/* {deltaPosition.x.toFixed(0)}, {deltaPosition.y.toFixed(0)} */}

@@ -11,6 +11,8 @@ import {
 } from "../styles/Wrappers.styled";
 import CardImage from "../components/card/CardImage";
 import FullNameOutput from "../components/outputs/FullNameOutput";
+import FontSizeSelect from "../components/inputs/FontSizeSelect";
+import { FontColorSelect } from "../components/inputs";
 
 // Font size input / text color options input
 // default radio checked
@@ -21,6 +23,8 @@ function CreateCardPage() {
   const [addressLine2, setAddressLine2] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
+  const [fontSize, setFontSize] = useState("24px");
+  const [fontColor, setFontColor] = useState("#888");
 
   function updateFullNameOutput() {
     const concatName = `${firstName} ${lastName}`;
@@ -44,6 +48,8 @@ function CreateCardPage() {
                 htmlFor="first-name, last-name"
                 fullName={fullName}
                 woodType={woodType}
+                fontSize={fontSize}
+                fontColor={fontColor}
               />
             </FullNameOutputWrapper>
           </CardOutline>
@@ -66,7 +72,13 @@ function CreateCardPage() {
             value={addressLine2}
             id="address-2"
           />
-          <WoodTypeRadioGroup woodType={woodType} setWoodType={setWoodType} />
+          <WoodTypeRadioGroup setWoodType={setWoodType} />
+          <FontSizeSelect setFontSize={setFontSize} fontSize={fontSize} />
+          <FontColorSelect
+            fontColor={fontColor}
+            setFontColor={setFontColor}
+            woodType={woodType}
+          />
         </CreateCardForm>
       </Grid2Cols>
     </>
