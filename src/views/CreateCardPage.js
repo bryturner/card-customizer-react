@@ -14,7 +14,6 @@ import FullNameOutput from "../components/outputs/FullNameOutput";
 import FontSizeSelect from "../components/inputs/FontSizeSelect";
 import { FontColorSelect } from "../components/inputs";
 
-// Font size input / text color options input
 // default radio checked
 function CreateCardPage() {
   const [firstName, setFirstName] = useState("");
@@ -24,7 +23,7 @@ function CreateCardPage() {
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
   const [fontSize, setFontSize] = useState("24px");
-  const [fontColor, setFontColor] = useState("#888");
+  const [fontColor, setFontColor] = useState("#fff");
 
   function updateFullNameOutput() {
     const concatName = `${firstName} ${lastName}`;
