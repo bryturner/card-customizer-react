@@ -22,7 +22,7 @@ function CreateCardPage() {
   const [textLine1, setTextLine1] = useState("");
   const [textLine2, setTextLine2] = useState("");
   const [textLine3, setTextLine3] = useState("");
-  const [additionalInfo, setAdditionalInfo] = useState("");
+  const [additionalInfo, setAdditionalInfo] = useState([]);
   const [fontSize, setFontSize] = useState("24px");
   const [fontColor, setFontColor] = useState("#fff");
 
@@ -31,14 +31,19 @@ function CreateCardPage() {
     setFullName(concatName);
   }
 
-  //   function updateAddInfoOutput() {
-  // 	const concatName = `${firstName} ${lastName}`;
-  // 	setFullName(concatName);
-  //  }
+  function updateAdditionalInfoOutput() {
+    const allLines = `${textLine1}, ${textLine2}, ${textLine3}`;
+
+    setAdditionalInfo(allLines);
+  }
 
   useEffect(() => {
     updateFullNameOutput();
   }, [updateFullNameOutput]);
+
+  useEffect(() => {
+    updateAdditionalInfoOutput();
+  }, [updateAdditionalInfoOutput]);
   return (
     <>
       <Grid2Cols>
@@ -59,6 +64,8 @@ function CreateCardPage() {
               <AdditionalInfoOutput
                 form="create-card-form"
                 htmlFor="text-line-1, text-line-2, text-line-3"
+                additionalInfo={additionalInfo}
+                fontColor={fontColor}
               />
             </OutputWrapper>
           </CardOutline>
@@ -66,31 +73,31 @@ function CreateCardPage() {
 
         <CreateCardForm id="create-card-form">
           <TextInput
+            id="first-name"
             setState={setFirstName}
             value={firstName}
-            id="first-name"
             placeholder="First"
           />
           <TextInput
+            id="last-name"
             setState={setLastName}
             value={lastName}
-            id="last-name"
             placeholder="Last"
           />
           <TextInput
+            id="text-line-1"
             setState={setTextLine1}
             value={textLine1}
-            id="text-line-1"
           />
           <TextInput
+            id="text-line-2"
             setState={setTextLine2}
             value={textLine2}
-            id="text-line-2"
           />
           <TextInput
+            id="text-line-3"
             setState={setTextLine3}
             value={textLine3}
-            id="text-line-3"
           />
           <WoodTypeRadioGroup setWoodType={setWoodType} />
           <FontSizeSelect setFontSize={setFontSize} fontSize={fontSize} />

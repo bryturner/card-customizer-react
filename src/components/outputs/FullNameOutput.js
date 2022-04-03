@@ -15,14 +15,8 @@ function FullNameOutput({
 
   const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0 });
 
-  const [controlledPosition, setControlledPosition] = useState({
-    x: 0,
-    y: 0,
-  });
-
-  function handleDragCont(e, ui) {
-    const { x, y } = controlledPosition;
-    setControlledPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
+  function getDeltaPositionOnDrag(e, ui) {
+    const { x, y } = deltaPosition;
     setDeltaPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
   }
 
@@ -32,17 +26,16 @@ function FullNameOutput({
 
   return (
     <Draggable
-      position={controlledPosition}
-      nodeRef={nodeRef}
       bounds="parent"
-      onDrag={handleDragCont}
+      nodeRef={nodeRef}
+      onDrag={getDeltaPositionOnDrag}
       onStop={getDeltaPosition}
     >
       <FullNameOutputStyled
         id="full-name-output"
+        ref={nodeRef}
         form={form}
         htmlFor={htmlFor}
-        ref={nodeRef}
         woodType={woodType}
         fontSize={fontSize}
         fontColor={fontColor}

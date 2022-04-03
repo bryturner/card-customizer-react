@@ -18,4 +18,6 @@ export const FullNameOutputStyled = styled(OutputStyled)`
   color: ${(props) => props.fontColor};
 `;
 
-export const AdditionalInfoOutputStyled = styled(OutputStyled)``;
+export const AdditionalInfoOutputStyled = styled(OutputStyled)`
+  color: ${(props) => props.fontColor};
+`;
