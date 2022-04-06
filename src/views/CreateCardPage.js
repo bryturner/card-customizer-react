@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CreateCardForm from "../components/forms/CreateCardForm";
 import { Grid2Cols } from "../styles/Grids.styled";
 import { CardOutline } from "../styles/Card.styled";
@@ -26,16 +26,16 @@ function CreateCardPage() {
   const [fontSize, setFontSize] = useState("24px");
   const [fontColor, setFontColor] = useState("#fff");
 
-  function updateFullNameOutput() {
+  const updateFullNameOutput = useCallback(() => {
     const concatName = `${firstName} ${lastName}`;
     setFullName(concatName);
-  }
+  }, [firstName, lastName]);
 
-  function updateAdditionalInfoOutput() {
+  const updateAdditionalInfoOutput = useCallback(() => {
     const allLines = `${textLine1}, ${textLine2}, ${textLine3}`;
 
     setAdditionalInfo(allLines);
-  }
+  }, [textLine1, textLine2, textLine3]);
 
   useEffect(() => {
     updateFullNameOutput();

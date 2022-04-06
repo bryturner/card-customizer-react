@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Draggable from "react-draggable";
 
 import { FullNameOutputStyled } from "../../styles/Outputs.styled";
