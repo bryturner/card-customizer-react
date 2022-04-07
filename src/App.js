@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { CardDetailsContextProvider } from "./context/CardDetailsContext";
 import Router from "./router/Router";
 import GlobalStyle from "./styles/Global.styled";
 
@@ -7,9 +8,11 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <CardDetailsContextProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </CardDetailsContextProvider>
     </>
   );
 }
