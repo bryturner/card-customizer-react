@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CreateCardForm from "../components/forms/CreateCardForm";
 import { Grid2Cols } from "../styles/Grids.styled";
 import { CardOutline } from "../styles/Card.styled";
@@ -13,9 +14,13 @@ import {
   WoodTypeRadioGroup,
 } from "../components/inputs";
 import AdditionalInfoOutput from "../components/outputs/AdditionalInfoOutput";
+import CardDetailsContext from "../context/CardDetailsContext";
+import SubmitFormButton from "../components/buttons/SubmitFormButton";
 
 function CreateCardPage() {
-  const [firstName, setFirstName] = useState("");
+  const { firstName, setFirstName } = useContext(CardDetailsContext);
+
+  //   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
@@ -26,6 +31,8 @@ function CreateCardPage() {
   const [fontSize, setFontSize] = useState("24px");
   const [fontColor, setFontColor] = useState("#fff");
 
+  const navigate = useNavigate();
+
   const updateFullNameOutput = useCallback(() => {
     const concatName = `${firstName} ${lastName}`;
     setFullName(concatName);
@@ -33,9 +40,14 @@ function CreateCardPage() {
 
   const updateAdditionalInfoOutput = useCallback(() => {
     const allLines = `${textLine1}, ${textLine2}, ${textLine3}`;
-
     setAdditionalInfo(allLines);
   }, [textLine1, textLine2, textLine3]);
+
+  function saveCardDetails(e) {
+    e.preventDefault();
+
+    navigate("/confirmation");
+  }
 
   useEffect(() => {
     updateFullNameOutput();
@@ -102,6 +114,7 @@ function CreateCardPage() {
           <WoodTypeRadioGroup setWoodType={setWoodType} />
           <FontSizeSelect setFontSize={setFontSize} fontSize={fontSize} />
           <FontColorSelect fontColor={fontColor} setFontColor={setFontColor} />
+          <SubmitFormButton type="submit">Submit</SubmitFormButton>
         </CreateCardForm>
       </Grid2Cols>
     </>
