@@ -1,20 +1,25 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import Draggable from "react-draggable";
+import CardDetailsContext from "../../context/CardDetailsContext";
 
 import { AdditionalInfoOutputStyled } from "../../styles/Outputs.styled";
 
 function AdditionalInfoOutput({ form, htmlFor, fontColor, additionalInfo }) {
+  const { additionalInfoDeltaPosition, setAdditionalInfoDeltaPosition } =
+    useContext(CardDetailsContext);
+
   const nodeRef = useRef(null);
 
-  const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0 });
-
   function getDeltaPositionOnDrag(e, ui) {
-    const { x, y } = deltaPosition;
-    setDeltaPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
+    const { x, y } = additionalInfoDeltaPosition;
+    setAdditionalInfoDeltaPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
   }
 
   function getDeltaPosition(e) {
-    console.log(deltaPosition.x.toFixed(0), deltaPosition.y.toFixed(0));
+    console.log(
+      additionalInfoDeltaPosition.x.toFixed(0),
+      additionalInfoDeltaPosition.y.toFixed(0)
+    );
   }
 
   return (

@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 import Draggable from "react-draggable";
+import CardDetailsContext from "../../context/CardDetailsContext";
 
 import { FullNameOutputStyled } from "../../styles/Outputs.styled";
 
@@ -11,17 +12,21 @@ function FullNameOutput({
   fontSize,
   fontColor,
 }) {
+  const { fullNameDeltaPosition, setFullNameDeltaPosition } =
+    useContext(CardDetailsContext);
+
   const nodeRef = useRef(null);
 
-  const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0 });
-
   function getDeltaPositionOnDrag(e, ui) {
-    const { x, y } = deltaPosition;
-    setDeltaPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
+    const { x, y } = fullNameDeltaPosition;
+    setFullNameDeltaPosition({ x: x + ui.deltaX, y: y + ui.deltaY });
   }
 
   function getDeltaPosition(e) {
-    console.log(deltaPosition.x.toFixed(0), deltaPosition.y.toFixed(0));
+    console.log(
+      fullNameDeltaPosition.x.toFixed(0),
+      fullNameDeltaPosition.y.toFixed(0)
+    );
   }
 
   return (
