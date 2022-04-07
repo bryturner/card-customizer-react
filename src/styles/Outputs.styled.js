@@ -3,8 +3,8 @@ import styled from "styled-components";
 const OutputStyled = styled.output`
   border: 2px solid black;
   position: absolute;
-  bottom: 1rem;
-  left: 25rem;
+  /* bottom: 1rem;
+  left: 25rem; */
   height: auto;
   width: auto;
   margin: 1rem;

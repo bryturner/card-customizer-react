@@ -26,10 +26,12 @@ function FullNameOutput({
 
   return (
     <Draggable
+      defaultPosition={{ x: 80, y: 210 }}
       bounds="parent"
       nodeRef={nodeRef}
       onDrag={getDeltaPositionOnDrag}
       onStop={getDeltaPosition}
+      grid={[10, 10]}
     >
       <FullNameOutputStyled
         id="full-name-output"
@@ -40,6 +42,7 @@ function FullNameOutput({
         fontSize={fontSize}
         fontColor={fontColor}
       >
+        Bryan
         {fullName}
         {/* {deltaPosition.x.toFixed(0)}, {deltaPosition.y.toFixed(0)} */}
       </FullNameOutputStyled>

@@ -19,10 +19,12 @@ function AdditionalInfoOutput({ form, htmlFor, fontColor, additionalInfo }) {
 
   return (
     <Draggable
+      defaultPosition={{ x: 80, y: 250 }}
       bounds="parent"
       nodeRef={nodeRef}
       onDrag={getDeltaPositionOnDrag}
       onStop={getDeltaPosition}
+      grid={[10, 10]}
     >
       <AdditionalInfoOutputStyled
         id="additional-info-output"
@@ -31,6 +33,7 @@ function AdditionalInfoOutput({ form, htmlFor, fontColor, additionalInfo }) {
         htmlFor={htmlFor}
         fontColor={fontColor}
       >
+        Additional Info
         {additionalInfo}
       </AdditionalInfoOutputStyled>
     </Draggable>
