@@ -12,6 +12,7 @@ import {
   TextInput,
   FontSizeSelect,
   WoodTypeRadioGroup,
+  AddlInfoTextArea,
 } from "../components/inputs";
 import AddlInfoOutput from "../components/outputs/AddlInfoOutput";
 import CardDetailsContext from "../context/CardDetailsContext";
@@ -26,8 +27,10 @@ function CreateCardPage() {
     woodType,
     setWoodType,
     fullName,
-    fontSize,
-    setFontSize,
+    fullNameFontSize,
+    setFullNameFontSize,
+    addlInfoFontSize,
+    setAddlInfoFontSize,
     fontColor,
     setFontColor,
     setTextAreaAddlInfo,
@@ -48,7 +51,7 @@ function CreateCardPage() {
                 htmlFor="first-name, last-name"
                 fullName={fullName}
                 woodType={woodType}
-                fontSize={fontSize}
+                fontSize={fullNameFontSize}
                 fontColor={fontColor}
               />
               <AddlInfoOutput
@@ -56,6 +59,7 @@ function CreateCardPage() {
                 htmlFor="text-area"
                 addlInfo={textAreaAddlInfo}
                 fontColor={fontColor}
+                fontSize={addlInfoFontSize}
               />
             </OutputWrapper>
           </CardOutline>
@@ -73,16 +77,20 @@ function CreateCardPage() {
             value={lastName}
             placeholder="Last"
           />
-
-          <textarea
+          <FontSizeSelect
+            setFontSize={setFullNameFontSize}
+            fontSize={fullNameFontSize}
+          />
+          <AddlInfoTextArea
             id="text-area"
-            onChange={(e) => {
-              setTextAreaAddlInfo(e.target.value);
-            }}
+            setState={setTextAreaAddlInfo}
             value={textAreaAddlInfo}
-          ></textarea>
+          ></AddlInfoTextArea>
+          <FontSizeSelect
+            setFontSize={setAddlInfoFontSize}
+            fontSize={addlInfoFontSize}
+          />
           <WoodTypeRadioGroup setWoodType={setWoodType} />
-          <FontSizeSelect setFontSize={setFontSize} fontSize={fontSize} />
           <FontColorSelect fontColor={fontColor} setFontColor={setFontColor} />
           <SubmitFormButton type="submit">Submit</SubmitFormButton>
         </CreateCardForm>

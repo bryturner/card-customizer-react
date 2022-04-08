@@ -8,8 +8,10 @@ export function CardDetailsContextProvider(props) {
   const [textAreaAddlInfo, setTextAreaAddlInfo] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
-  const [fontSize, setFontSize] = useState("24px");
+  const [fullNameFontSize, setFullNameFontSize] = useState("24px");
+  const [addlInfoFontSize, setAddlInfoFontSize] = useState("18px");
   const [fontColor, setFontColor] = useState("#fff");
+
   const [fullNameDeltaPosition, setFullNameDeltaPosition] = useState({
     x: 0,
     y: 0,
@@ -46,8 +48,10 @@ export function CardDetailsContextProvider(props) {
         woodType,
         setWoodType,
         fullName,
-        fontSize,
-        setFontSize,
+        fullNameFontSize,
+        setFullNameFontSize,
+        addlInfoFontSize,
+        setAddlInfoFontSize,
         fontColor,
         setFontColor,
         fullNameDeltaPosition,

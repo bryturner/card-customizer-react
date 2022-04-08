@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import CardDetailsContext from "../../context/CardDetailsContext";
 import { AddlInfoOutputStyled } from "../../styles/Outputs.styled";
 
-function AddlInfoOutput({ form, htmlFor, fontColor, addlInfo }) {
+function AddlInfoOutput({ form, htmlFor, fontSize, fontColor, addlInfo }) {
   const { addlInfoDeltaPosition, setAddlInfoDeltaPosition } =
     useContext(CardDetailsContext);
 
@@ -36,6 +36,7 @@ function AddlInfoOutput({ form, htmlFor, fontColor, addlInfo }) {
         form={form}
         htmlFor={htmlFor}
         fontColor={fontColor}
+        fontSize={fontSize}
       >
         {addlInfo}
       </AddlInfoOutputStyled>
