@@ -18,6 +18,7 @@ export const FullNameOutputStyled = styled(OutputStyled)`
   color: ${(props) => props.fontColor};
 `;
 
-export const AdditionalInfoOutputStyled = styled(OutputStyled)`
+export const AddlInfoOutputStyled = styled(OutputStyled)`
   color: ${(props) => props.fontColor};
+  white-space: pre-wrap;
 `;

@@ -13,7 +13,7 @@ import {
   FontSizeSelect,
   WoodTypeRadioGroup,
 } from "../components/inputs";
-import AdditionalInfoOutput from "../components/outputs/AdditionalInfoOutput";
+import AddlInfoOutput from "../components/outputs/AddlInfoOutput";
 import CardDetailsContext from "../context/CardDetailsContext";
 import SubmitFormButton from "../components/buttons/SubmitFormButton";
 
@@ -26,17 +26,12 @@ function CreateCardPage() {
     woodType,
     setWoodType,
     fullName,
-    textLine1,
-    setTextLine1,
-    textLine2,
-    setTextLine2,
-    textLine3,
-    setTextLine3,
-    additionalInfo,
     fontSize,
     setFontSize,
     fontColor,
     setFontColor,
+    setTextAreaAddlInfo,
+    textAreaAddlInfo,
   } = useContext(CardDetailsContext);
 
   return (
@@ -56,16 +51,15 @@ function CreateCardPage() {
                 fontSize={fontSize}
                 fontColor={fontColor}
               />
-              <AdditionalInfoOutput
+              <AddlInfoOutput
                 form="create-card-form"
-                htmlFor="text-line-1, text-line-2, text-line-3"
-                additionalInfo={additionalInfo}
+                htmlFor="text-area"
+                addlInfo={textAreaAddlInfo}
                 fontColor={fontColor}
               />
             </OutputWrapper>
           </CardOutline>
         </CardContainer>
-
         <CreateCardForm id="create-card-form">
           <TextInput
             id="first-name"
@@ -79,21 +73,14 @@ function CreateCardPage() {
             value={lastName}
             placeholder="Last"
           />
-          <TextInput
-            id="text-line-1"
-            setState={setTextLine1}
-            value={textLine1}
-          />
-          <TextInput
-            id="text-line-2"
-            setState={setTextLine2}
-            value={textLine2}
-          />
-          <TextInput
-            id="text-line-3"
-            setState={setTextLine3}
-            value={textLine3}
-          />
+
+          <textarea
+            id="text-area"
+            onChange={(e) => {
+              setTextAreaAddlInfo(e.target.value);
+            }}
+            value={textAreaAddlInfo}
+          ></textarea>
           <WoodTypeRadioGroup setWoodType={setWoodType} />
           <FontSizeSelect setFontSize={setFontSize} fontSize={fontSize} />
           <FontColorSelect fontColor={fontColor} setFontColor={setFontColor} />
