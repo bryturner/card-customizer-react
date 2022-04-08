@@ -3,11 +3,15 @@ import React, { createContext, useState, useEffect, useCallback } from "react";
 const CardDetailsContext = createContext();
 
 export function CardDetailsContextProvider(props) {
-  const [textAreaAddlInfo, setTextAreaAddlInfo] = useState("");
+  const [addlInfo, setAddlInfo] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
   const [fullNameFontSize, setFullNameFontSize] = useState("24px");
+  const [fullNameFontStyle, setFullNameFontStyle] = useState("serif");
+  const [fullNameFontWeight, setFullNameFontWeight] = useState("500");
   const [addlInfoFontSize, setAddlInfoFontSize] = useState("18px");
+  const [addlInfoFontStyle, setAddlInfoFontStyle] = useState("18px");
+  const [addlInfoFontWeight, setAddlInfoFontWeight] = useState("18px");
   const [fontColor, setFontColor] = useState("#fff");
   const [fullNameDeltaPosition, setFullNameDeltaPosition] = useState({
     x: 0,
@@ -23,8 +27,8 @@ export function CardDetailsContextProvider(props) {
   }, [fullName]);
 
   const updateAddlInfoOutput = useCallback(() => {
-    setTextAreaAddlInfo(textAreaAddlInfo);
-  }, [textAreaAddlInfo]);
+    setAddlInfo(addlInfo);
+  }, [addlInfo]);
 
   useEffect(() => {
     updateFullNameOutput();
@@ -34,6 +38,7 @@ export function CardDetailsContextProvider(props) {
     updateAddlInfoOutput();
   }, [updateAddlInfoOutput]);
 
+  //   Change addl info text area name
   return (
     <CardDetailsContext.Provider
       value={{
@@ -41,8 +46,18 @@ export function CardDetailsContextProvider(props) {
         setFullName,
         fullNameFontSize,
         setFullNameFontSize,
+        fullNameFontStyle,
+        setFullNameFontStyle,
+        fullNameFontWeight,
+        setFullNameFontWeight,
+        addlInfo,
+        setAddlInfo,
         addlInfoFontSize,
         setAddlInfoFontSize,
+        addlInfoFontStyle,
+        setAddlInfoFontStyle,
+        addlInfoFontWeight,
+        setAddlInfoFontWeight,
         fontColor,
         setFontColor,
         woodType,
@@ -51,8 +66,6 @@ export function CardDetailsContextProvider(props) {
         setFullNameDeltaPosition,
         addlInfoDeltaPosition,
         setAddlInfoDeltaPosition,
-        textAreaAddlInfo,
-        setTextAreaAddlInfo,
       }}
     >
       {props.children}

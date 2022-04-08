@@ -28,11 +28,19 @@ function CreateCardPage() {
     fullNameFontSize,
     setFullNameFontSize,
     addlInfoFontSize,
+    fullNameFontStyle,
+    setFullNameFontStyle,
+    fullNameFontWeight,
+    setFullNameFontWeight,
+    addlInfoFontStyle,
+    setAddlInfoFontStyle,
+    addlInfoFontWeight,
+    setAddlInfoFontWeight,
     setAddlInfoFontSize,
     fontColor,
     setFontColor,
-    setTextAreaAddlInfo,
-    textAreaAddlInfo,
+    setAddlInfo,
+    addlInfo,
   } = useContext(CardDetailsContext);
 
   return (
@@ -55,7 +63,7 @@ function CreateCardPage() {
               <AddlInfoOutput
                 form="create-card-form"
                 htmlFor="text-area"
-                addlInfo={textAreaAddlInfo}
+                addlInfo={addlInfo}
                 fontColor={fontColor}
                 fontSize={addlInfoFontSize}
               />
@@ -75,8 +83,8 @@ function CreateCardPage() {
           />
           <AddlInfoTextArea
             id="text-area"
-            setState={setTextAreaAddlInfo}
-            value={textAreaAddlInfo}
+            setState={setAddlInfo}
+            value={addlInfo}
           ></AddlInfoTextArea>
           <FontSizeSelect
             setFontSize={setAddlInfoFontSize}

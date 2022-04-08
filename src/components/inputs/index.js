@@ -4,3 +4,5 @@ export { default as WoodTypeRadioGroup } from "./WoodTypeRadioGroup";
 export { default as WoodTypeRadio } from "./WoodTypeRadio";
 export { default as AddlInfoTextArea } from "./AddlInfoTextArea";
 export { default as FontColorSelect } from "./FontColorSelect";
+export { default as FontStyleSelect } from "./FontStyleSelect";
+export { default as FontWeightCheckbox } from "./FontWeightCheckbox";
