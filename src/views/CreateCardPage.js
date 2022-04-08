@@ -1,12 +1,8 @@
 import React, { useContext } from "react";
 
+import CardDetailsContext from "../context/CardDetailsContext";
 import CreateCardForm from "../components/forms/CreateCardForm";
-import { Grid2Cols } from "../styles/Grids.styled";
-import { CardOutline } from "../styles/Card.styled";
-import { CardContainer } from "../styles/Containers.styled";
-import { CardImageWrapper, OutputWrapper } from "../styles/Wrappers.styled";
 import CardImage from "../components/card/CardImage";
-import FullNameOutput from "../components/outputs/FullNameOutput";
 import {
   FontColorSelect,
   TextInput,
@@ -15,18 +11,20 @@ import {
   AddlInfoTextArea,
 } from "../components/inputs";
 import AddlInfoOutput from "../components/outputs/AddlInfoOutput";
-import CardDetailsContext from "../context/CardDetailsContext";
+import FullNameOutput from "../components/outputs/FullNameOutput";
 import SubmitFormButton from "../components/buttons/SubmitFormButton";
+
+import { Grid2Cols } from "../styles/Grids.styled";
+import { CardOutline } from "../styles/Card.styled";
+import { CardContainer } from "../styles/Containers.styled";
+import { CardImageWrapper, OutputWrapper } from "../styles/Wrappers.styled";
 
 function CreateCardPage() {
   const {
-    firstName,
-    setFirstName,
-    lastName,
-    setLastName,
     woodType,
     setWoodType,
     fullName,
+    setFullName,
     fullNameFontSize,
     setFullNameFontSize,
     addlInfoFontSize,
@@ -48,7 +46,7 @@ function CreateCardPage() {
             <OutputWrapper>
               <FullNameOutput
                 form="create-card-form"
-                htmlFor="first-name, last-name"
+                htmlFor="full-name"
                 fullName={fullName}
                 woodType={woodType}
                 fontSize={fullNameFontSize}
@@ -66,16 +64,10 @@ function CreateCardPage() {
         </CardContainer>
         <CreateCardForm id="create-card-form">
           <TextInput
-            id="first-name"
-            setState={setFirstName}
-            value={firstName}
-            placeholder="First"
-          />
-          <TextInput
-            id="last-name"
-            setState={setLastName}
-            value={lastName}
-            placeholder="Last"
+            id="full-name"
+            setState={setFullName}
+            value={fullName}
+            placeholder="Jane Doe"
           />
           <FontSizeSelect
             setFontSize={setFullNameFontSize}

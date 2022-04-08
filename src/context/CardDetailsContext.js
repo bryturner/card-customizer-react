@@ -3,15 +3,12 @@ import React, { createContext, useState, useEffect, useCallback } from "react";
 const CardDetailsContext = createContext();
 
 export function CardDetailsContextProvider(props) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [textAreaAddlInfo, setTextAreaAddlInfo] = useState("");
   const [woodType, setWoodType] = useState("spruce");
   const [fullName, setFullName] = useState("");
   const [fullNameFontSize, setFullNameFontSize] = useState("24px");
   const [addlInfoFontSize, setAddlInfoFontSize] = useState("18px");
   const [fontColor, setFontColor] = useState("#fff");
-
   const [fullNameDeltaPosition, setFullNameDeltaPosition] = useState({
     x: 0,
     y: 0,
@@ -22,9 +19,8 @@ export function CardDetailsContextProvider(props) {
   });
 
   const updateFullNameOutput = useCallback(() => {
-    const concatName = `${firstName} ${lastName}`;
-    setFullName(concatName);
-  }, [firstName, lastName]);
+    setFullName(fullName);
+  }, [fullName]);
 
   const updateAddlInfoOutput = useCallback(() => {
     setTextAreaAddlInfo(textAreaAddlInfo);
@@ -41,19 +37,16 @@ export function CardDetailsContextProvider(props) {
   return (
     <CardDetailsContext.Provider
       value={{
-        firstName,
-        setFirstName,
-        lastName,
-        setLastName,
-        woodType,
-        setWoodType,
         fullName,
+        setFullName,
         fullNameFontSize,
         setFullNameFontSize,
         addlInfoFontSize,
         setAddlInfoFontSize,
         fontColor,
         setFontColor,
+        woodType,
+        setWoodType,
         fullNameDeltaPosition,
         setFullNameDeltaPosition,
         addlInfoDeltaPosition,
